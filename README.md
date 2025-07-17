@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Creditify Africa – Credit Intelligence Engine
+Overview
+Creditify Africa is a credit intelligence platform designed to analyze mobile money statements (such as M-PESA PDFs) and other financial activity to assess an individual’s creditworthiness in a more inclusive and behaviorally intelligent way. 
+Traditional credit scoring systems often exclude millions of informal and underserved individuals. We aim to bridge that gap by extracting behavioral, transactional and contextual data points from real world financial records and turning them into meaningful credit profiles.
+Our mission is to enable fair, transparent and data driven lending decisions for African individuals and small businesses using tools grounded in behavioral economics, machine learning and contextual financial analysis.
+Goal
+To build an explainable, locally relevant credit scoring system that helps lenders understand the "why" behind someone's credit behavior and not just the "what."
 
-## Getting Started
+Key Creditworthiness Indicators (Data Points)
 
-First, run the development server:
+Money Ins (Sources of Income)
+Diversity of income streams
+Regularity of income 
+Source credibility
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Money Outs (Spending Patterns)
+Proportion of income spent on essentials (rent, food, transport, bills)
+Excessive luxury spending relative to income
+Fixed vs discretionary spending
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Evidence of Risky Behavior
+Evidence of gambling
+Frequency and size of gambling related transactions
+Correlation between gambling and low balances
+Regular payments to betting companies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Debt Repayment Behavior
+Consistency in paying previous loans (If present in income streams)
+Timelines in repayments
+Debt management (Do they take debt to pay debt)
+Paybill transactions to digital lenders
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Savings Behavior
+Transactions to SACCOS or mobile savings platforms (Mshwari, KCB Mpesa)
+Savings Frequency and amount
+Withdrawal patterns (are savings depleted soon after deposit)
 
-## Learn More
+Cash Flow Management
+End of month balances (do they live paycheck to paycheck)
+Frequency of overdraft services like Fuliza Mpesa
+Net cash flow
 
-To learn more about Next.js, take a look at the following resources:
+Lifestyle and Financial Responsibilities Indicators
+Donations and giving patterns (church, charities, family support)
+Airtime and data purchases
+Frequent small withdrawals (impulsiveness)
+Behavior after receiving money
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Business Operations
+Payments to suppliers
+Regularity of “Buy Goods” payments from customers
+Agriculture
+Salary payments
+Dependents or Relationship Stability
+Stable payment patterns to same parties (spouses, children)
+Frequency of family support in relation to balances
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Financial Stress Signals
+Emergency withdrawals
+Downward trend in account balances over time
+Repeated overdraft usage
+Low balances for long times
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Money Ins (Sources of Income)
+Money ins refer to all incoming transactions. Includes money received from:
+Salaries and employment income
+Business revenue
+Loans
+Family and friends remittances
+SACCOS or welfare payouts
+Government programs or stipends
+Refunds and reversals
+
+Key Dimensions to Analyze in Money Ins
+
+Source classification
+Is the sender a business or personal number
+Similar transactions are grouped together then we analyze the pattern over time
+Use possible keywords to classify
+Also time of transactions: Say maybe the payments range from 9AM to 8PM and are several transactions of amounts ranging from 100-1000. This could indicate a business.
+
+Frequency and regularity of income
+Daily: This is common for business owners
+Weekly/ Biweekly: This could indicate casual labour or commissions
+Monthly: Could indicate employment especially around the end of the month.
+Random: Could indicate unreliable support or ad hoc income
+Determined by calculating time intervals between transactions from the same sender.
+
+Amount stability
+Fixed amount every month could indicate salary
+
+Volume of income streams
+Single stream: This is high risk unless it is a stable one
+Multiple streams: More stable and lower risk
+A person earning 10K a month from 3 different sources is less risky compared to one earning 30K from a single source.
+
+Business indicators
+Payments from many different people, especially small amounts may indicate a business.
+Repeated deposits from buy goods till number.
+A business with 20+ customers per week has active cash flow even if each payment is small.
